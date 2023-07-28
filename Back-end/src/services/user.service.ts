@@ -1,7 +1,7 @@
 import { ModelStatic } from "sequelize";
 import { User } from "../database/models/User";
 import { ILogin, IUser } from "../interfaces/user.interface";
-import { returnUserSchema } from "../schemas/user.schema";
+import { AllUserSchema, returnUserSchema } from "../schemas/user.schema";
 import { compare } from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -10,7 +10,7 @@ export class UserService {
 
   async get() {
     const users = await this.model.findAll();
-    return { status: 200, message: users };
+    return { status: 200, message: AllUserSchema.parse(users)};
   }
 
   async post(user: IUser) {
