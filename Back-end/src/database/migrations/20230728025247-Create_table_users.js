@@ -23,10 +23,6 @@ module.exports = {
         type: Sequelize.STRING(150),
         allowNull: false,
       },
-      createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
     });
   },
 

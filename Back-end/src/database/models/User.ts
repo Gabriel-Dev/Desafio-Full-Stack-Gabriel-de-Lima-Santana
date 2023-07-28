@@ -29,11 +29,7 @@ User.init(
     password: {
       type: sequelize.STRING(150),
       allowNull: false,
-    },
-    createdAt: {
-      type: sequelize.DATE,
-      allowNull: false,
-    },
+    }
   },
   {
     sequelize: database,
