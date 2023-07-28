@@ -10,5 +10,4 @@ export const handleErrors = (error: Error, request: Request, response: Response,
     response.status(500).json({
          message: error.message
     })
-
 }

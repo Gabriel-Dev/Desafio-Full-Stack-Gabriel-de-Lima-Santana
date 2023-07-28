@@ -13,4 +13,9 @@ export class UserController{
         const { status, message } = await this.service.post(request.body)
         response.status(status).json(message)
     }
+
+    async login(request: Request, response: Response, next: NextFunction){
+        const { status, message } = await this.service.login(request.body)
+        response.status(status).json(message)
+    }
 }
