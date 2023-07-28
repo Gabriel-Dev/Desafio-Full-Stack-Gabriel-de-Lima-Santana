@@ -1,6 +1,7 @@
 import { Model } from "sequelize";
 import { database } from "../../sequelize";
 import sequelize from "sequelize";
+import { hashSync } from "bcryptjs";
 
 export class User extends Model {
   declare id: number;
@@ -35,5 +36,10 @@ User.init(
     sequelize: database,
     tableName: "users",
     timestamps: false,
+    hooks:{
+      beforeCreate:(user)=>{
+        user.password = hashSync(user.password, 10)
+      }
+    }
   }
 );

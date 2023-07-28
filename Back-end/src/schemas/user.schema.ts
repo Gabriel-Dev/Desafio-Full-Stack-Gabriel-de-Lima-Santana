@@ -11,3 +11,4 @@ export const userSchema = returnUserSchema.omit({ id: true }).extend({
 })
 
 
+export const loginSchema = userSchema.omit({name: true})
