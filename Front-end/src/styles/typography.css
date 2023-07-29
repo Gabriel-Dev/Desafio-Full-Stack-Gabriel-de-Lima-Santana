@@ -4,7 +4,7 @@
   .heading-1-700 {
     font-style: normal;
     font-weight: 700;
-    font-size: 44px;
+    font-size: 32px;
   }
 
   .heading-2-700 {
@@ -19,10 +19,10 @@
     font-size: 32px;
   }
 
-  .heading-4-600 {
+  .heading-4-700 {
     font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
+    font-weight: 700;
+    font-size: 20px;
   }
 
   .body-1-600 {
