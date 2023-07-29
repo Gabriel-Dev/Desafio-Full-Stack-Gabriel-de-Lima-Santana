@@ -14,7 +14,7 @@ interface UserContextValues {
   loading: boolean;
   spinner: boolean;
   LoginSubmit: (loginData: ILogin) => Promise<void>;
-  createUser: (user:IUser) => Promise<void>;
+  registerSubmit: (user: IUser) => Promise<void>;
 }
 
 export const UserContext = createContext<UserContextValues>(
@@ -68,7 +68,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     loadUser();
   }, [navigate]);
 
-  const createUser = async (user: IUser) => {
+  const registerSubmit = async (user: IUser) => {
     try {
       setSpinner(true);
       await api.post(`/users`, user);
@@ -84,7 +84,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 
   return (
     <UserContext.Provider
-      value={{ user, loading, spinner, LoginSubmit, createUser }}
+      value={{ user, loading, spinner, LoginSubmit, registerSubmit }}
     >
       {children}
     </UserContext.Provider>
