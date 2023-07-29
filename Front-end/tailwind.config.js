@@ -9,10 +9,9 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'brand-1': '#4529E6',
-      'brand-2': '#5126EA',
-      'brand-3': '#B0A6F0',
-      'brand-4': '#EDEAFD',
+      'brand-1': '#121111',
+      'brand-2': '#b37a00',
+      'brand-3': '#e3a010',
 
       'grey-0': '#0B0D0D',
       'grey-1': '#212529',
@@ -46,6 +45,18 @@ module.exports = {
       'random-10': '#6100FF',
       'random-11': '#5700E3',
       'random-12': '#30007D',
+    },
+    extend:{
+      keyframes:{
+        gradient:{
+          "0%":{'background-position': '0% 50%'},
+          "50%":{'background-position': '100% 50%'},
+          '100%':{'background-position': '0% 50%' }
+        }
+      }
+    },
+    animation:{
+      gradient: "gradient 15s ease infinite"
     }
   },
   plugin: []

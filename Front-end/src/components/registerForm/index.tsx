@@ -21,50 +21,48 @@ export const RegisterForm = () => {
 
   return (
     <form
-      className=""
+      className="w-full flex flex-col justify-center items-center gap-2"
       onSubmit={handleSubmit(registerSubmit)}
     >
-      <div>
+      <div className="w-[80%] relative px-2">
         <input
           type="text"
           placeholder="Name"
-          className=""
+          className="input-text w-full"
           {...register("name")}
         />
-        <CgProfile />
-        {errors.name && <p>{errors.name.message}</p>}
+        <CgProfile className="text-[20px] text-grey-4 absolute top-[10px]"/>
       </div>
-      <div>
+      <div className="w-[80%] relative px-2">
         <input
           type="email"
           placeholder="E-mail"
-          className=""
+          className="input-text w-full"
           {...register("email")}
         />
-        <TfiEmail />
-        {errors.email && <p>{errors.email.message}</p>}
+        <TfiEmail className="text-[18px] text-grey-4 absolute top-[10px] left-[8px]" />
+       
       </div>
-      <div>
+      <div className="w-[80%] relative px-2">
         <input
           type="password"
           placeholder="Password"
-          className=""
+          className="input-text w-full"
           {...register("password")}
         />
-        <TbLock />
-        {errors.password && <p>{errors.password.message}</p>}
+        <TbLock className="text-[20px] text-grey-4 absolute top-[10px]"/>
+        
       </div>
-      <div>
+      <div className="w-[80%] relative px-2">
         <input
           type="password"
           placeholder="Confirm password"
-          className=""
+          className="input-text w-full"
           {...register("confirmPassword")}
         />
-        <TbLock />
-        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+        <TbLock className="text-[20px] text-grey-4 absolute top-[10px]"/>
       </div>
-      <button type="submit" className="">
+      <button type="submit" className="button-brand-2 mt-8 w-[50%]">
         Create an Account
       </button>
     </form>
