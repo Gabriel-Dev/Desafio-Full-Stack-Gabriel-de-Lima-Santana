@@ -1,8 +1,8 @@
 import { ReactNode, createContext, useState, useEffect } from "react";
 import { notifyError, notifySucess } from "../toastfy";
 import { api } from "../services/api";
-import { useNavigate } from "react-router-dom";
-import { ILogin, IReturnUser, IUser } from "../schemas/userSchema";
+import { NavigateFunction, useNavigate } from "react-router-dom";
+import { ILogin, IProduct, IReturnUser, IUser } from "../schemas/userSchema";
 import jwt_decode from "jwt-decode";
 
 interface UserProviderProps {
@@ -11,10 +11,10 @@ interface UserProviderProps {
 
 interface UserContextValues {
   user: null | IReturnUser;
-  loading: boolean;
-  spinner: boolean;
+  products: null | IProduct[];
   LoginSubmit: (loginData: ILogin) => Promise<void>;
   registerSubmit: (user: IUser) => Promise<void>;
+  navigate: NavigateFunction
 }
 
 export const UserContext = createContext<UserContextValues>(
@@ -24,12 +24,10 @@ export const UserContext = createContext<UserContextValues>(
 export const UserProvider = ({ children }: UserProviderProps) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [spinner, setSpinner] = useState(false);
+  const [products, setProducts] = useState(null);
 
   const LoginSubmit = async (loginData: ILogin) => {
     try {
-      setSpinner(true);
       const response = await api.post("/users/login", loginData);
       window.localStorage.clear();
       window.localStorage.setItem(
@@ -37,54 +35,48 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         JSON.stringify(response.data.token)
       );
       navigate("/");
-      setLoading(true);
       notifySucess("Successfully logged in!");
     } catch (err) {
       console.log(err);
       notifyError("Invalid credentials");
-    } finally {
-      setSpinner(false);
     }
   };
 
   useEffect(() => {
-    async function loadUser() {
+    async function loadUserAndProducts() {
       const token: string = JSON.parse(localStorage.getItem("@token")!);
+
       if (!token) {
-        setLoading(false);
+        setProducts(null);
         return;
       }
       const userId = Number(jwt_decode<{ sub: string }>(token).sub);
       try {
         api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-        const response = await api.get(`/users`);
-        setUser(response.data.find((user: IReturnUser) => user.id == userId));
+        const users = await api.get(`/users`);
+        const products = await api.get(`/products`);
+        setUser(users.data.find((user: IReturnUser) => user.id == userId));
+        setProducts(products.data);
       } catch (err) {
         console.log(err);
-      } finally {
-        setLoading(false);
       }
     }
-    loadUser();
+    loadUserAndProducts();
   }, [navigate]);
 
   const registerSubmit = async (user: IUser) => {
     try {
-      setSpinner(true);
       await api.post(`/users`, user);
       notifySucess("User successfully created!");
     } catch (err) {
       console.log(err);
       notifyError("Failed to create user");
-    } finally {
-      setLoading(false);
-      setSpinner(false);
     }
   };
 
   return (
     <UserContext.Provider
-      value={{ user, loading, spinner, LoginSubmit, registerSubmit }}
+      value={{ user, products, LoginSubmit, registerSubmit, navigate }}
     >
       {children}
     </UserContext.Provider>
