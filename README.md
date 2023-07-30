@@ -1,34 +1,51 @@
-
-Olá, se você recebeu esse teste é porque gostamos do seu perfil, e está a poucos 
-passos de fazer parte do nosso time!
-
-Gostaríamos que você participasse desse desafio para que possamos testar suas habilidades técnicas, então bora lá!
-
 # Teste Full-Stack Nex Digital
-Este teste busca analisar as capacidades técnicas para a vaga de Desenvolvedor Full-Stack.
 
-## Desafio
-Você deverá desenvolver uma aplicação que consiste em: um banco de dados (PostgreSQL), uma API (Node.js + Sequelize.js) e o Front-end (React.js). 
+## Preparando o ambiente back-end
 
-Na aplicação, um usuário deverá se cadastrar utilizando nome, e-mail e senha e se autenticar na 
-aplicação utilizando JWT. Já na home, o backend deve retornar para o usuário  uma lista de produtos que apenas um usuário autenticado pode acessar.
+- Navegue e abra o terminal na pasta Back-end
 
-## Pré-Requisitos
+```bash
+cd Back-end
+```
 
-- Front-End - React.js
-- API - Node.js + sequelize.js
-- Banco de dados - PostgreSQL
+- Instale todos os pacotes
 
-## O que será avaliado
+```bash
+npm install
+```
 
-- Organização geral do código
-- Padronização de nomes de variáveis/funções
-- Performance e segurança do código
-- Utilização correta de git
+- Crie um arquivo .env na raiz do projeto seguindo exemplo do arquivo .env.example
 
-## Diferencial
+- Execute as migrações
 
-- Manter o código limpo e em inglês 
-- Utilizar princípios SOLID
-- Agilidade
-- Código maciço com bons tratamentos de erros e bugs
+```bash
+npx sequelize-cli db:migrate
+```
+- Inicie o servidor
+
+```bash
+npm run dev
+```
+
+- Para acessar a documentação da API acesse a url "http://localhost:3001/api-docs" no seu navegador 
+
+
+## Preparando o ambiente Front-end
+
+- abra um novo terminal e navegue até pasta Front-end
+
+```bash
+cd Front-end
+```
+
+- Instale todos os pacotes
+
+```bash
+npm install
+```
+
+- Inicie o servidor e acesse a url http://localhost:5173/ no seu navegador
+
+```bash
+npm run dev
+```
