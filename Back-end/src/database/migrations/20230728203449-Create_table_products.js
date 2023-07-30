@@ -22,43 +22,43 @@ module.exports = {
     await queryInterface.bulkInsert("products", [
       {
         name: "Smartphone",
-        description: "Dispositivo móvel avançado com recursos de comunicação, internet e aplicativos.",
+        description: "An advanced mobile device with communication, internet, and application features.",
       },
       {
         name: "Laptop",
-        description: "Computador portátil para trabalhar, estudar e entretenimento.",
+        description: "A portable computer for work, study, and entertainment.",
       },
       {
         name: "Smartwatch",
-        description: "Relógio inteligente que oferece recursos como monitoramento de saúde, notificações e aplicativos.",
+        description: "An intelligent watch that offers features such as health monitoring, notifications, and applications.",
       },
       {
-        name: "Fone de ouvido sem fio",
-        description: "Fones de ouvido Bluetooth para ouvir música, fazer chamadas e assistir a vídeos sem fios.",
+        name: "Wireless Headphones",
+        description: "Bluetooth headphones for listening to music, making calls, and watching videos wirelessly.",
       },
       {
-        name: "Câmera DSLR",
-        description: "Câmera de alta qualidade para fotografia profissional e amadora.",
+        name: "DSLR Camera",
+        description: "A high-quality camera for professional and amateur photography.",
       },
       {
-        name: "Realidade Virtual (VR) headset",
-        description: "Dispositivo que proporciona experiências imersivas em ambientes virtuais.",
+        name: "Virtual Reality (VR) Headset",
+        description: "A device that provides immersive experiences in virtual environments.",
       },
       {
-        name: "Console de jogos",
-        description: "Plataforma de jogos, como PlayStation, Xbox e Nintendo Switch.",
+        name: "Gaming Console",
+        description: "Gaming platform, such as PlayStation, Xbox, and Nintendo Switch.",
       },
       {
-        name: "Impressora 3D",
-        description: "Equipamento que cria objetos tridimensionais a partir de modelos digitais.",
+        name: "3D Printer",
+        description: "Equipment that creates three-dimensional objects from digital models.",
       },
       {
-        name: "Dispositivos de casa inteligente",
-        description: "Dispositivos e sistemas que permitem controlar a casa remotamente, como lâmpadas inteligentes, termostatos conectados e câmeras de segurança.",
+        name: "Smart Home Devices",
+        description: "Devices and systems that allow remote control of the home, such as smart bulbs, connected thermostats, and security cameras.",
       },
       {
-        name: "Monitor 4K",
-        description: "Monitor de alta resolução para computadores e entretenimento.",
+        name: "4K Monitor",
+        description: "High-resolution monitor for computers and entertainment.",
       }
     ]);
   },

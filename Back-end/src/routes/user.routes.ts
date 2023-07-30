@@ -11,12 +11,12 @@ export const userRoutes = Router();
 userRoutes.get("", control.get.bind(control));
 userRoutes.post(
   "",
-  middleware.validateData(userSchema).bind(middleware),
-  middleware.uniqueEmail.bind(middleware),
+  middleware.verifyData(userSchema).bind(middleware),
+  middleware.verifyUniqueEmail.bind(middleware),
   control.post.bind(control)
 );
 userRoutes.post(
   "/login",
-  middleware.validateData(loginSchema).bind(middleware),
+  middleware.verifyData(loginSchema).bind(middleware),
   control.login.bind(control)
 );
