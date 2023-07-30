@@ -20,30 +20,30 @@ export const LoginForm = () => {
 
   return (
     <form
-      className=""
+      className="w-full flex flex-col justify-center items-center gap-2"
       onSubmit={handleSubmit(LoginSubmit)}
     >
-      <div>
+      <div className="w-[80%] relative px-2">
         <input
           type="email"
           placeholder="E-mail"
-          className=""
+          className="input-text w-full"
           {...register("email")}
         />
-        <TfiEmail />
+        <TfiEmail className="text-[20px] text-grey-4 absolute top-[10px]"/>
         
       </div>
-      <div>
+      <div className="w-[80%] relative px-2">
         <input
           type="password"
           placeholder="Password"
-          className=""
+          className="input-text w-full"
           {...register("password")}
         />
-        <TbLock />
+        <TbLock className="text-[20px] text-grey-4 absolute top-[10px]"/>
       </div>
       
-      <button type="submit" className="">
+      <button type="submit" className="button-brand-2 mt-8 w-[50%]">
         Sing in
       </button>
     </form>

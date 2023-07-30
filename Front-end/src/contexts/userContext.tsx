@@ -14,7 +14,7 @@ interface UserContextValues {
   products: null | IProduct[];
   LoginSubmit: (loginData: ILogin) => Promise<void>;
   registerSubmit: (user: IUser) => Promise<void>;
-  navigate: NavigateFunction
+  navigate: NavigateFunction;
 }
 
 export const UserContext = createContext<UserContextValues>(
