@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 @layer components {
-    .gradient {
-        @apply w-full h-screen;
-        background: linear-gradient(45deg, #000000, #353232, #000000, #353232);
-        background-size: 300% 300% ;
-    } 
+  .gradient {
+    @apply w-full h-screen;
+    background: linear-gradient(45deg, #000000, #353232, #000000, #353232);
+    background-size: 300% 300%;
+  }
 }
-

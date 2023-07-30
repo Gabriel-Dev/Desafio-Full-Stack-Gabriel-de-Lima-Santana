@@ -13,7 +13,9 @@ export const Register = () => {
         <div className="w-full max-w-[600px] min-h-[600px] p-4 flex flex-col gap-8">
           <section className=" text-whiteFixed body-1-400 flex justify-around">
             <div
-              className={`text-center ${singUp && "border-b-2 border-brand-2"} cursor-pointer`}
+              className={`text-center ${
+                singUp && "border-b-2 border-brand-2"
+              } cursor-pointer`}
               onClick={() => {
                 setSingUp(true);
               }}
@@ -22,7 +24,9 @@ export const Register = () => {
               <p>You don't have an account</p>
             </div>
             <div
-              className={`text-center ${!singUp && "border-b-2 border-brand-2"} cursor-pointer`}
+              className={`text-center ${
+                !singUp && "border-b-2 border-brand-2"
+              } cursor-pointer`}
               onClick={() => {
                 setSingUp(false);
               }}
@@ -32,8 +36,14 @@ export const Register = () => {
             </div>
           </section>
           {singUp ? <RegisterForm /> : <LoginForm />}
-          <p className="body-1-600 text-whiteFixed w-full text-center cursor-pointer"
-          onClick={()=>{navigate("/")}}>Go back to home</p>
+          <p
+            className="body-1-600 text-whiteFixed w-full text-center cursor-pointer"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Go back to home
+          </p>
         </div>
       </main>
     </>

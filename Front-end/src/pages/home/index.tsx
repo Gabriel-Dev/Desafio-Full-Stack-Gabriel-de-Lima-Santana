@@ -1,7 +1,6 @@
 import { Product } from "../../components/product";
 import { UserContext } from "../../contexts/userContext";
 import { useContext } from "react";
-import tech from "../../assets/Daco_6140960.png";
 
 export const Home = () => {
   const { products, navigate } = useContext(UserContext);
@@ -15,17 +14,21 @@ export const Home = () => {
             alt="nex digital"
           />
           {products && (
-            <p className="body-1-600 text-center cursor-pointer"
-            onClick={()=>{
-              window.localStorage.clear();
-              location.reload()
-            }}>Sing out</p>
+            <p
+              className="body-1-600 text-center cursor-pointer"
+              onClick={() => {
+                window.localStorage.clear();
+                location.reload();
+              }}
+            >
+              Sing out
+            </p>
           )}
         </div>
         {products ? (
           <h1 className="heading-1-700 w-[70%] mt-[50px]">
-            Now that you have registered with us. 
-            Welcome to the world of technology!
+            Now that you have registered with us. Welcome to the world of
+            technology!
           </h1>
         ) : (
           <h1 className="heading-1-700 w-[70%] mt-[50px]">
